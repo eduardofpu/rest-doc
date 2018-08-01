@@ -34,7 +34,6 @@ public class ContatoControllerTest extends AbstractTest{
        this.mockMvc.perform(MockMvcRequestBuilders.get(PATH+"contatos"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andDo(MockMvcResultHandlers.print());
-
     }
 
     @Test
@@ -74,7 +73,6 @@ public class ContatoControllerTest extends AbstractTest{
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-
     }
 
 

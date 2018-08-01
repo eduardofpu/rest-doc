@@ -45,7 +45,6 @@ public abstract class AbstractTest {
     @Before
     public void setUp() {
 
-
         documentationResultHandler = MockMvcRestDocumentation.document("{method-name}",
                 Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
                 Preprocessors.preprocessResponse(Preprocessors.prettyPrint()));
