@@ -1,0 +1,12 @@
+== Contato
+
+=== Buscar Contatos
+include::{snippets}/target/generated-snippets/find-all/http-request.adoc[]
+include::{snippets}/target/generated-snippets/find-all/request-parameters.adoc[]
+include::{snippets}/target/generated-snippets/find-all/http-response.adoc[]
+
+
+=== Cria Contatos
+include::{snippets}/target/generated-snippets/create/http-request.adoc[]
+include::{snippets}/target/generated-snippets/create/request-parameters.adoc[]
+include::{snippets}/target/generated-snippets/create/http-response.adoc[]

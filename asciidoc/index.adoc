@@ -1,0 +1,57 @@
+= Contatos API
+:example-caption!:
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 5
+
+== Introdução
+Bem-vindo à documentação da API do painel de controle do Realwave. Essa documentação da API fornecerá informações suficientes sobre os recursos e as operações suportadas na versão atual. Esta API está seguindo as convenções Restful.
+
+=== Como usar
+As solicitações devem ser feitas usando o protocolo HTTPS. A interface responde a diferentes métodos, dependendo da ação necessária.
+
+=== HTTP Methods
+Os métodos permitidos são:
+
+|===
+| Método | Descrição
+
+| `GET`
+| Usado para obter informações sobre um recurso
+
+|===
+
+[[http-status]]
+=== Códigos HTTP
+Os códigos HTTP suportados são:
+
+|===
+| Código | Descrição
+
+| `200 OK`
+| O pedido foi executado com sucesso
+
+| `201 Created`
+| O novo recurso foi criado com sucesso
+
+| `204 No Content`
+| Nenhuma informação adicional
+
+| `400 Bad Request`
+| Pedido ruim. Verifique a resposta para saber informações detalhadas sobre o erro
+
+| `401 Unauthorized`
+| Os dados de autorização são inválidos
+
+| `403 Forbidden`
+| As credenciais não têm privilégios suficientes para acessar o recurso
+
+| `404 Not Found`
+| O recurso solicitado não foi encontrado
+|===
+
+= Recursos - Relatórios
+Os recursos da API V1 são detalhados nesta seção.
+
+include::contato.adoc[]
+
