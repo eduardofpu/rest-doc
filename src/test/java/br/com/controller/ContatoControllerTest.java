@@ -17,6 +17,8 @@ import java.util.Map;
 
 import static java.lang.String.valueOf;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,7 +29,7 @@ public class ContatoControllerTest extends AbstractTest{
     private final String PATH = "/";
 
     @Test
-    public void findAll() throws Exception {
+    public void findAllContato() throws Exception {
        saveV2();
        this.mockMvc.perform(MockMvcRequestBuilders.get(PATH+"contatos"))
                .andExpect(MockMvcResultMatchers.status().isOk())
@@ -36,7 +38,7 @@ public class ContatoControllerTest extends AbstractTest{
     }
 
     @Test
-    public void create() throws Exception {
+    public void createContato() throws Exception {
         String jsonContent = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("payload/contatos.json"));
 
         this.mockMvc.perform(MockMvcRequestBuilders.post(PATH+"contato")
@@ -51,7 +53,7 @@ public class ContatoControllerTest extends AbstractTest{
     }
 
     @Test
-    public void updateV2() throws Exception {
+    public void updateContato() throws Exception {
         ContatoEntity edit = saveV1();
         int id = Integer.parseInt(valueOf(edit.getId()));
 
@@ -68,7 +70,7 @@ public class ContatoControllerTest extends AbstractTest{
                         .content(JSONObject.toJSONString(data)))
                 .andExpect(status().isAccepted())
                 .andExpect(jsonPath("id", Matchers.is(id)))
-                .andDo(MockMvcResultHandlers.print())
+                 .andDo(MockMvcResultHandlers.print())
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -77,7 +79,7 @@ public class ContatoControllerTest extends AbstractTest{
 
 
     @Test
-    public void delete() throws Exception {
+    public void deleteContato() throws Exception {
 
         ContatoEntity created = saveV1();
         Assertions.assertThat(created.getId()).isNotNull();
@@ -89,10 +91,14 @@ public class ContatoControllerTest extends AbstractTest{
                         .param("id",id)
                         .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+                .andDo(
+                        documentationResultHandler.document(
+                                requestParameters(
+                                        parameterWithName("id").description(id)
+                                )
+                        )
+                );
+
         Assertions.assertThat(id).isNotNull();
     }
 

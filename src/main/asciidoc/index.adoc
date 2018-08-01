@@ -5,12 +5,12 @@
 :toclevels: 5
 
 == Introdução
-Bem-vindo à documentação da API do painel de controle do Realwave. Essa documentação da API fornecerá informações suficientes sobre os recursos e as operações suportadas na versão atual. Esta API está seguindo as convenções Restful.
+Bem-vindo à documentação da API do painel de controle Contatos. Essa documentação da API fornecerá informações suficientes sobre os recursos e as operações suportadas na versão atual. Esta API está seguindo as convenções Restful.
 
 === Como usar
 As solicitações devem ser feitas usando o protocolo HTTPS. A interface responde a diferentes métodos, dependendo da ação necessária.
 
-=== HTTP Methods
+=== HTTP Métodos
 Os métodos permitidos são:
 
 |===
@@ -34,20 +34,9 @@ Os códigos HTTP suportados são:
 | `201 Created`
 | O novo recurso foi criado com sucesso
 
-| `204 No Content`
-| Nenhuma informação adicional
+| `202 Accepted`
+| O novo recurso foi aceito com sucesso
 
-| `400 Bad Request`
-| Pedido ruim. Verifique a resposta para saber informações detalhadas sobre o erro
-
-| `401 Unauthorized`
-| Os dados de autorização são inválidos
-
-| `403 Forbidden`
-| As credenciais não têm privilégios suficientes para acessar o recurso
-
-| `404 Not Found`
-| O recurso solicitado não foi encontrado
 |===
 
 = Recursos - Relatórios
